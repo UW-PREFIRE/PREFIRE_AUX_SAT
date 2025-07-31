@@ -1,0 +1,158 @@
+{
+"_JSON_COMMENTS_": {
+  "purpose": {"to_describe": "the metadata and form of a NetCDF-format file"},
+  
+  "abbrev_widget_len": {
+       "units": "cubits",
+       "long_name": "abbreviated widget length",
+       "description": "an arbitrary example of a data variable",
+       "C_dimensions": ["atrack", "xtrack"],
+       "F_dimensions": ["xtrack", "atrack"],
+       "np_dtype": "float32", "fill_value": -9.999e3,
+       "compression": [4, true] },
+
+  "C_dimensions_are": { "for": "Python, C, C++, etc." },
+  "F_dimensions_are": { "for": "Fortran, MatLab, IDL, etc." },
+  "can_have_either": { "or_both_types": "of dimension definition" },
+  "for_an_unlimited_dimension": { "add_a_prefix_eg": "!U!time" },
+
+  "Global_Attributes": { "group": "can be empty or omitted" },
+  "xxxxx_Group_Attributes": { "group": "can omit/empty, xxxxx is group name" },
+  "eg_value_known_globalgroup_att": { "value": 3.14159 },
+  "eg_value_pending_globalgroup_att": { "value": "!to_be_set!" } 
+},
+
+
+"Global_Attributes": {
+    "Format": {"value": "netCDF-4"},
+    "summary": {"value": "The PREFIRE AUX-SAT product provides meteorologically-relevant fields from other satellite-based datasets (e.g., VIIRS L3 data products) which are near PREFIRE TIRS FOVs in space and time."},
+    "full_versionID": {"value": "!to_be_set!"},
+    "archival_versionID": {"value": "!to_be_set!"},
+    "granule_ID": {"value": "!to_be_set!"},
+    "provenance": {"value": "!to_be_set!"},
+    "file_name": {"value": "!to_be_set!"},
+    "input_product_files": {"value": "!to_be_set!"},
+    "processing_algorithmID": {"value": "!to_be_set!"},
+    "processing_level": {"value": "2B"},
+    "UTC_of_file_creation": {"value": "!to_be_set!"},
+    "spacecraft_ID": {"value": "!to_be_set!"},
+    "sensor_ID": {"value": "!to_be_set!"},
+    "ctime_coverage_start_s": {"value": "!to_be_set!"},
+    "ctime_coverage_end_s": {"value": "!to_be_set!"},
+    "UTC_coverage_start": {"value": "!to_be_set!"},
+    "UTC_coverage_end": {"value": "!to_be_set!"},
+    "additional_file_description": {"value": " "},
+    "netCDF_lib_version": {"value": "!to_be_set!"},
+    "orbit_sim_version": {"value": "!to_be_set!"},
+    "SRF_NEdR_version": {"value": " "},
+    "is_this_a_final_product_file": {"value": "no"}
+},
+
+
+"Aux-Sat_Group_Attributes": {
+    "VNP10C1_version": {"value": "!to_be_set!"},
+    "VNP10C1_PGE_name": {"value": "!to_be_set!"},
+    "VNP10C1_PGE_version": {"value": "!to_be_set!"},
+    "VNP10C1_DOI": {"value": "!to_be_set!"},
+    "VJ110C1_version": {"value": "!to_be_set!"},
+    "VJ110C1_PGE_name": {"value": "!to_be_set!"},
+    "VJ110C1_PGE_version": {"value": "!to_be_set!"},
+    "VJ110C1_DOI": {"value": "!to_be_set!"},
+    "AMSR_L3_seaice_version": {"value": "!to_be_set!"},
+    "AMSR_L3_seaice_maturity_code": {"value": "!to_be_set!"},
+    "AMSR_L3_seaice_DOI": {"value": "!to_be_set!"},
+    "NISE_L3_seaice_snowextent_version": {"value": "!to_be_set!"},
+    "NISE_L3_seaice_snowextent_PGE_version": {"value": "!to_be_set!"},
+    "NISE_L3_seaice_snowextent_DOI": {"value": "10.5067/3KB2JPLFPK3R"},
+    "VIIRS_platform_ID" : {"value": "[nviirs index 0] SNPP, [nviirs index 1] NOAA-20"},
+    "sea_ice_category_values": {"value": "(sea ice fraction >= 0.95: sea ice), (0.05 <= sea ice fraction < 0.95: partial sea ice), (sea ice fraction < 0.05: open water)"},
+    "snow_cover_category_values": {"value": "(snow cover >= 0.5: snow-covered land), (0.01 < snow cover < 0.5: partial snow-covered land), (snow cover <= 0.01: snow-free land)" }
+},
+
+"Aux-Sat": {
+    "VIIRS_L3_num_pts_total": {
+             "long_name": "VIIRS L3 CMG number of points",
+             "description": "number of VIIRS L3 CMG points within TIRS FOV, including masked points",
+             "C_dimensions": ["atrack", "xtrack"],
+             "np_dtype": "int16", "fill_value": -9999,
+             "compression": [4, true] },
+    "VIIRS_L3_snow_fraction_num_pts_used": {
+             "long_name": "VIIRS L3 CMG snow fraction number of points used",
+             "description": "number of VIIRS L3 CMG points within TIRS FOV used to calculate snow fraction, after cloud- and quality-flag masking applied",
+             "C_dimensions": ["atrack", "xtrack", "nviirs"],
+             "np_dtype": "int16", "fill_value": -9999,
+             "compression": [4, true] },
+    "VIIRS_L3_snow_fraction_mean": {
+             "long_name": "VIIRS L3 snow fraction (mean)",
+             "description": "mean snow fraction across all VIIRS L3 CMG points within TIRS FOV, after cloud- and quality-flag masking applied",
+             "C_dimensions": ["atrack", "xtrack", "nviirs"],
+             "np_dtype": "float32", "fill_value": -9.999e3,
+             "compression": [4, true] },
+    "VIIRS_L3_snow_fraction_stdev": {
+             "long_name": "VIIRS L3 snow fraction (standard deviation)",
+             "description": "standard deviation of snow fraction across all VIIRS L3 CMG points within TIRS FOV, after cloud- and quality-flag masking applied",
+             "C_dimensions": ["atrack", "xtrack", "nviirs"],
+             "np_dtype": "float32", "fill_value": -9.999e3,
+             "compression": [4, true] },
+    "VIIRS_L3_cloud_fraction_num_pts_used": {
+             "long_name": "VIIRS L3 CMG cloud fraction number of points used",
+             "description": "number of VIIRS L3 CMG points within TIRS FOV used to calculate cloud fraction, after quality-flag masking applied",
+             "C_dimensions": ["atrack", "xtrack", "nviirs"],
+             "np_dtype": "int16", "fill_value": -9999,
+             "compression": [4, true] },
+    "VIIRS_L3_cloud_fraction_mean": {
+             "long_name": "VIIRS L3 cloud fraction (mean)",
+             "description": "mean cloud fraction across all VIIRS L3 CMG points within TIRS FOV, after quality-flag masking applied",
+             "C_dimensions": ["atrack", "xtrack", "nviirs"],
+             "np_dtype": "float32", "fill_value": -9.999e3,
+             "compression": [4, true] },
+    "VIIRS_L3_cloud_fraction_stdev": {
+             "long_name": "VIIRS L3 cloud fraction (standard deviation)",
+             "description": "standard deviation of cloud fraction across all VIIRS L3 CMG points within TIRS FOV, after quality-flag masking applied",
+             "C_dimensions": ["atrack", "xtrack", "nviirs"],
+             "np_dtype": "float32", "fill_value": -9.999e3,
+             "compression": [4, true] },
+    "AMSR_L3_seaice_concentration": {
+             "long_name": "AMSR L3 sea ice concentration",
+             "description": "AMSR L3 sea ice concentration, bilinearly interpolated to TIRS FOV, expressed as a fraction (sea ice area / total water area) ranging from 0 to 1",
+             "C_dimensions": ["atrack", "xtrack"],
+             "np_dtype": "float32", "fill_value": -9.999e3,
+             "compression": [4, true] },
+    "NISE_L3_snow_fraction": {
+             "long_name": "NISE L3 snow fraction",
+             "description": "NISE L3 snow cover, bilinearly interpolated to TIRS FOV, expressed as a fraction ranging from 0 to 1. Fraction results from interpolation of binary source data values ([0] snow-free land, [1] snow-covered land)",
+             "C_dimensions": ["atrack", "xtrack"],
+             "np_dtype": "float32", "fill_value": -9.999e3,
+             "compression": [4, true] },
+    "NISE_L3_seaice_concentration": {
+             "long_name": "NISE L3 sea ice concentration",             
+             "description": "NISE L3 sea ice concentration, bilinearly interpolated to TIRS FOV, expressed as a fraction (sea ice area / total water area) ranging from 0 to 1",
+             "C_dimensions": ["atrack", "xtrack"],
+             "np_dtype": "float32", "fill_value": -9.999e3,
+             "compression": [4, true] },
+    "merged_surface_type_final": {
+             "long_name": "merged surface type (final)",
+             "description": "final merged surface type using met analysis and satellite sea ice and snow cover data",
+             "flag_values": [1, 2, 3, 4, 5, 6, 7, 8],
+             "flag_meanings": "[1] open water, [2] sea ice, [3] partial sea ice, [4] permanent land ice, [5] Antarctic ice shelf, [6] snow-covered land, [7] partial snow-covered land, [8] snow-free land",
+             "C_dimensions": ["atrack", "xtrack"],
+             "np_dtype": "int8", "fill_value": -99,
+             "compression": [4, true] },
+    "merged_seaice_final_data_source": {
+             "long_name": "merged surface type sea ice (final) data source",
+             "description": "sea ice data source used to determine final merged surface type",
+             "flag_values": [0, 1, 6, 7],
+             "flag_meanings": "[0] None, [1] AMSR, [6] NISE, [7] GEOS-IT",
+             "C_dimensions": ["atrack", "xtrack"],
+             "np_dtype": "int8", "fill_value": -99,
+             "compression": [4, true] },
+    "merged_snow_final_data_source": {
+             "long_name": "merged surface type snow cover (final) data source",
+             "description": "snow cover data source used to determine final merged surface type",
+             "flag_values": [0, 3, 4, 6, 7],
+             "flag_meanings": "[0] None, [3] NOAA20 VIIRS L3, [4] SNPP VIIRS L3, [6] NISE, [7] GEOS-IT",
+             "C_dimensions": ["atrack", "xtrack"],
+             "np_dtype": "int8", "fill_value": -99,
+             "compression": [4, true] }
+}
+}
